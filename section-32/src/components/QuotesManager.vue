@@ -45,8 +45,13 @@
         },
         methods: {
             addQuote: function() {
-                this.quotes.push(this.quote)
-                this.$emit('quoteAdded')
+                if (this.quotes.length < 10){
+                    this.quotes.push(this.quote)
+                    this.$emit('quoteAdded')
+                } else {
+                    alert('Delete some quotes before adding new ones!')
+                }
+                
             },
             deleteQuote: function(i) {
                 console.log('Delete Called!')
