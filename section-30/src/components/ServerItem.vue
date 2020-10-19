@@ -4,9 +4,11 @@
             <li
             class="list-group-item"
             v-for="server in servers">
-                <button @click="$emit('server-selected', server.id)">
+                <span 
+                style="cursor: pointer"
+                @click="$emit('server-selected', server.id)">
                     Server #{{ server.id }}
-                </button>
+                </span>
                 <span>
                     Server Status: {{server.status}}
                 </span>
