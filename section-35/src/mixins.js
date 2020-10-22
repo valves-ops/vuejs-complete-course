@@ -6,5 +6,10 @@ export const computedMixins = {
         countDisplayComputed: function(){
             return this.text + " " + "(" + this.text.length + ")"; 
         }
+    },
+    data: function() {
+        return {
+            text2: 'Stoker'
+        }
     }
 }

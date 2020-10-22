@@ -10,6 +10,7 @@
                 <!-- Build a global Filter which counts the length of a word and it appends it -->
                 <!-- Like this: "Test" => Gets Filtered to => "Test (4)" -->
                 <h3>{{ text | countDisplay }}</h3>
+                <h3>{{ text2 }}</h3>
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
                 <hr>
@@ -25,12 +26,13 @@
 <script>
     import { computedMixins } from './mixins'
     export default {
+        mixins: [computedMixins],
         data: function() {
             return {
                 text: "Hamlet"
             }
         },
-        mixins: [computedMixins],
+
         filters: {
             reverse: function(value){
                 return value.split("").reverse().join("")
