@@ -24,11 +24,7 @@
         directives: {
             at: {
                 bind: function(el, binding){
-                    console.log('Entered bind')
-                    if (binding.arg === 'click') {
-                        console.log(binding.value)
-                        el.addEventListener('click', binding.value)
-                    }
+                    el.addEventListener(binding.arg, binding.value)
                 }
             }
         }
