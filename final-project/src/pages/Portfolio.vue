@@ -1,7 +1,9 @@
 <template>
-    <v-row>
-        Portfolio
-    </v-row>
+    <v-container>
+        <v-row>
+            Portfolio
+        </v-row>
+    </v-container>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-    <v-row>
-        Stocks
-    </v-row>
+    <v-container>
+        <v-row>
+            Stocks
+        </v-row>
+    </v-container>
 </template>
 
 <script>
