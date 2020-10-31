@@ -1,15 +1,24 @@
 <template>
     <v-container>
         <v-row>
-            Stocks
+            <StockCard stockName="BMW"></StockCard>
+            <StockCard stockName="Google"></StockCard>            
         </v-row>
     </v-container>
 </template>
 
 <script>
-    export default {
+import StockCard from '../components/StockCard.vue'
+export default {
+    data: function() {
+        return {
 
+        }
+    },
+    components: {
+        StockCard,
     }
+}
 </script>
 
 <style>
