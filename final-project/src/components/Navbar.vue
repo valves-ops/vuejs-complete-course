@@ -1,6 +1,6 @@
 <template>
     <v-app-bar>
-        <v-col cols=3 md="2" lg="1">
+        <v-col cols=3 md="2" lg="1  ">
             <router-link class="green--text text-decoration-none" to="/home" >
                 <span class="stock-trader">
                     Stock Trader
