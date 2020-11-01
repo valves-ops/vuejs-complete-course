@@ -75,8 +75,6 @@ export default new Vuex.Store({
         },
         sellStock: function({ commit, state }, stock) {
             let currentStock = state.stocks.find(obj => obj.stockName === stock.stockName)
-            // let currentPosition = state.portfolio.find(obj => obj.stockName === stock.stockName)
-            // let variation = stock.quantity*(currentStock.stockPrice - currentPosition.avgPrice) 
             let newFunds = state.funds + stock.quantity*currentStock.stockPrice
             commit('UPDATE_FUNDS', newFunds)
             commit('DEL_STOCK', stock)
@@ -85,12 +83,6 @@ export default new Vuex.Store({
             for (let stock of state.stocks) {
                 let variation = Math.floor(20*(Math.random() - 0.5))
                 commit('UPDATE_PRICE', { stock, variation })
-                // if (state.portfolio.find(obj => obj.stockName === stock.stockName) != null) {
-                //     let currentPosition = state.portfolio.find(obj => obj.stockName === stock.stockName)
-                //     let fundsVariation = currentPosition.quantity*(stock.stockPrice - currentPosition.avgPrice)
-                //     let newFunds = state.funds + fundsVariation
-                //     commit('UPDATE_FUNDS', newFunds)
-                // }
                 
             }
 
