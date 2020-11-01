@@ -11,15 +11,17 @@
             <v-row class="pt-5" align="center">
                 <v-col cols="4">
                     <v-text-field
-                    placeholder="Quantity"
+                    v-model="quantity"
+                    placeholder=Quantity
+                    type="number"
                     outlined
                     hide-details
                     >
                     </v-text-field>
                 </v-col>
                 <v-spacer></v-spacer>
-                <v-col cols="2">
-                    <slot name="button"></slot>
+                <v-col cols="4" lg="2">
+                    <slot name="button" :quantity="quantity"></slot>
                 </v-col>
             </v-row>
         </v-card-text>
@@ -30,6 +32,11 @@
 
 <script>
     export default {
+        data: function(){
+            return {
+                quantity: null,
+            }
+        },
         props: {
             stockName: {
                 required: true,

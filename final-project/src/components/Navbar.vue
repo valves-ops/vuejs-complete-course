@@ -13,10 +13,9 @@
             <v-tab to="/stocks">Stocks</v-tab>
         </v-tabs>
         <v-btn
-            v-bind="attrs"
-            v-on="on"
             text
             class="text-capitalize"
+            @click="endDay"
         >
             End Day
         </v-btn>
@@ -48,7 +47,7 @@
             </v-list>
         </v-menu>
         <v-col cols="2" md="1">
-            Funds: $10000
+            Funds: ${{ fundsFormated }}
         </v-col>
     </v-app-bar>
 </template>
@@ -58,6 +57,16 @@
         data: function() {
             return {
                 loadselect: [],
+            }
+        },
+        computed: {
+            fundsFormated: function() {
+                return this.$store.state.funds
+            }
+        },
+        methods: {
+            endDay: function(){
+                this.$store.dispatch('updatePrices')
             }
         }
     }

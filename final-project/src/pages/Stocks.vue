@@ -1,8 +1,10 @@
 <template>
     <v-container>
         <v-row>
-            <StockCard stockName="BMW"></StockCard>
-            <StockCard stockName="Google"></StockCard>            
+            <StockCard 
+            v-for="stock in $store.state.stocks" 
+            :stockName="stock.stockName"
+            :stockPrice="stock.stockPrice"></StockCard>           
         </v-row>
     </v-container>
 </template>
@@ -17,7 +19,7 @@ export default {
     },
     components: {
         StockCard,
-    }
+    },
 }
 </script>
 

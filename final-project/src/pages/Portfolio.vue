@@ -1,8 +1,9 @@
 <template>
     <v-container>
         <v-row>
-            <PortfolioCard stockName="BMW"></PortfolioCard>
-            <PortfolioCard stockName="Google"></PortfolioCard>            
+            <PortfolioCard 
+            v-for="stock in $store.state.portfolio" 
+            :stockName="stock.stockName"></PortfolioCard>           
         </v-row>
     </v-container>
 </template>
