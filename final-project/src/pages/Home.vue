@@ -18,7 +18,7 @@
         <v-divider class="pt-4"></v-divider>
         <v-row class="pt-4">
             <span class="text-h5">
-                Your Funds: $ {{ $store.getters.funds }}
+                Your Funds: {{ $store.getters.funds | currency }}
             </span>
         </v-row>
     </v-card>

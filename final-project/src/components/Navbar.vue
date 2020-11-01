@@ -47,7 +47,7 @@
             </v-list>
         </v-menu>
         <v-col cols="2" md="1">
-            Funds: ${{ fundsFormated }}
+            Funds: {{ fundsFormated | currency }}
         </v-col>
     </v-app-bar>
 </template>
