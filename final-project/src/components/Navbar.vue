@@ -34,12 +34,12 @@
                 </v-btn>
             </template>
             <v-list>
-                    <v-list-item>
+                    <v-list-item @click="loadData">
                         <v-list-item-title>
                             Load Data
                         </v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
+                    <v-list-item @click="saveData">
                         <v-list-item-title>
                             Save Data                       
                         </v-list-item-title>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         data: function() {
             return {
@@ -67,6 +68,18 @@
         methods: {
             endDay: function(){
                 this.$store.dispatch('updatePrices')
+            },
+            loadData: function() {
+                this.$store.dispatch('loadData')
+            },
+            saveData: function() {
+                console.log('save data')
+                let data = {portfolio: this.$store.state.portfolio}
+                console.log(data)
+                axios.put('/portfolio.json', data)
+                axios.put('/funds.json', {
+                    funds: this.$store.getters.funds
+                })
             }
         }
     }

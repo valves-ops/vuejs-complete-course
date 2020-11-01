@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -60,6 +61,12 @@ export default new Vuex.Store({
             console.log(variation)
             state.stocks[stockIndex].stockPrice += variation
         },
+        LOAD_DATA: function(state, data) {
+            state.portfolio = data.portfolio
+        },
+        LOAD_FUNDS: function(state, data) {
+            state.funds = data.funds
+        }
     },
     getters: {
         funds: function(state){
@@ -85,7 +92,14 @@ export default new Vuex.Store({
                 commit('UPDATE_PRICE', { stock, variation })
                 
             }
-
+        },
+        loadData: function({ commit }) {
+            axios.get('/portfolio.json').then(response => {
+                commit('LOAD_DATA', response.data)
+            })
+            axios.get('/funds.json').then(response => {
+                commit('LOAD_FUNDS', response.data)
+            })
         }
     }
 })
