@@ -1,7 +1,7 @@
 <template>
     <BaseStockCard :stockName="stockName" :coloringClasses="'blue blue--text'">
         <template v-slot:price>
-            (Price: {{ stockPrice  }} 
+            (Price: {{ stockPrice | currency }} 
             | Quantity: {{ stockQuantity }})
         </template>
         <template v-slot:button="slotProps">
